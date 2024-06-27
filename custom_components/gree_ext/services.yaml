@@ -40,3 +40,17 @@ set_swing_mode_ext:
             - "SwingMiddle"
             - "SwingLowerMiddle"
             - "SwingLower"
+set_quiet_mode_ext:
+  name: Correctly set quiet mode
+  description: Set Gree quiet mode for climate device to value that persists.
+  target:
+    entity:
+      domain: climate
+  fields:
+    value:
+      name: Quiet mode value
+      description: New value for quiet mode
+      required: true
+      example: true
+      selector:
+        boolean:

@@ -1,11 +1,11 @@
 {
   "domain": "gree_ext",
   "name": "Gree climate extension",
-  "codeowners": ["@mullerdavid"],
+  "codeowners": ["@piotrtobolski"],
   "dependencies": ["gree"],
-  "documentation": "https://github.com/mullerdavid/hass_GreeExt",
+  "documentation": "https://github.com/piotrtobolski/hass_GreeExt",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/mullerdavid/hass_GreeExt/issues",
+  "issue_tracker": "https://github.com/piotrtobolski/hass_GreeExt/issues",
   "requirements": [],
   "version": "0.1.0"
 }
