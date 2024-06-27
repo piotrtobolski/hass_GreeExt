@@ -12,6 +12,7 @@ gree_ext:
 """
 
 import logging
+import enum
 
 from homeassistant.core import callback
 from homeassistant.helpers import area_registry as ar, device_registry as dr, entity_registry as er, entity_platform as ep
@@ -19,6 +20,9 @@ from homeassistant.components.climate.const import DOMAIN as CLIMATE_DOMAIN
 from homeassistant.components.gree.const import DOMAIN as GREE_DOMAIN
 from homeassistant.components.gree.climate import GreeClimateEntity
 from greeclimate.device import HorizontalSwing, VerticalSwing
+
+class Props(enum.Enum):
+    QUIET = "Quiet"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -92,7 +96,7 @@ async def async_setup(hass, config):
                         _LOGGER.warning("Setting quiet for entity (%s) to %s", entity.entity_id, str(quiet_mode))
                         greeclimate = entity.coordinator.device
                         if quiet_mode is not None:
-                            greeclimate.set_property("Quiet", 2 if quiet_mode else 0)
+                            greeclimate.set_property(Props.QUIET, 2 if quiet_mode else 0)
                         else:
                             _LOGGER.error("Missing value for quiet mode for entity (%s)", entity.entity_id)
                         await greeclimate.push_state_update()
